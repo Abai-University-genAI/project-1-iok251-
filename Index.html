@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradeSim - Бағалау Симуляторы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 GradeSim v1.0</h1>
+            <p>Критериалды бағалау жүйесі (100 баллдық)</p>
+        </header>
+
+        <section class="input-section">
+            <div class="card">
+                <h3>Жаңа оқушы қосу</h3>
+                <input type="text" id="studentName" placeholder="Оқушының аты-жөні">
+                
+                <div class="grades-grid">
+                    <div class="input-group">
+                        <label>Формативті (0-100)</label>
+                        <input type="number" id="formative" min="0" max="100" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label>БЖБ/СОР (0-100)</label>
+                        <input type="number" id="sor" min="0" max="100" value="0">
+                    </div>
+                    <div class="input-group">
+                        <label>ТЖБ/СОЧ (0-100)</label>
+                        <input type="number" id="soch" min="0" max="100" value="0">
+                    </div>
+                </div>
+                <button onclick="addStudent()" class="btn-add">Енгізу</button>
+            </div>
+        </section>
+
+        <section class="result-section">
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>Оқушы</th>
+                        <th>ФБ (50%)</th>
+                        <th>БЖБ (25%)</th>
+                        <th>ТЖБ (25%)</th>
+                        <th>Қорытынды</th>
+                        <th>Баға</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

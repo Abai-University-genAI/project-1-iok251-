@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<title>Бағалау симуляторы</title>
+<style>
+body {
+    font-family: Arial;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+.container{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    width:350px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
+}
+input{
+    width:100%;
+    padding:8px;
+    margin:5px 0 15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+button{
+    background:#667eea;
+    color:white;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    width:100%;
+    cursor:pointer;
+    font-size:16px;
+}
+button:hover{
+    background:#764ba2;
+}
+.result{
+    margin-top:20px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>📊 Бағалау симуляторы</h2>
+
+<input type="text" id="name" placeholder="Оқушы аты">
+<input type="number" id="bj1" placeholder="БЖБ1 (0-20)" max="20">
+<input type="number" id="bj2" placeholder="БЖБ2 (0-20)" max="20">
+<input type="number" id="tj" placeholder="ТЖБ (0-50)" max="50">
+<input type="number" id="form" placeholder="Формативтік (0-1)" max="1">
+
+<button onclick="calc()">Есептеу</button>
+
+<div class="result" id="result"></div>
+</div>
+
+<script>
+function calc(){
+let name=document.getElementById("name").value;
+let bj1=+document.getElementById("bj1").value||0;
+let bj2=+document.getElementById("bj2").value||0;
+let tj=+document.getElementById("tj").value||0;
+let form=+document.getElementById("form").value||0;
+
+if(!name){alert("Атын енгіз!");return;}
+if(bj1>20||bj2>20||tj>50||form>1){
+alert("Балл шектен асты!");
+return;
+}
+
+let total=bj1+bj2+tj+form;
+let grade="";
+
+if(total>=90) grade="A";
+else if(total>=75) grade="B";
+else if(total>=60) grade="C";
+else if(total>=50) grade="D";
+else grade="F";
+
+document.getElementById("result").innerHTML=
+name+" — "+total+"/100 балл <br> Қорытынды баға: "+grade;
+}
+</script>
+
+</body>
+</html>
